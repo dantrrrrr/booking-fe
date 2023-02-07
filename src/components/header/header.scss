@@ -1,0 +1,84 @@
+.header {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .headerContainer {
+        width: 100%;
+        max-width: 1024px;
+        margin: 20px 0 100px 0;
+
+        .headerList {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+            .headerListItem {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                &.active{
+                    border: 1px solid #fff;
+                    padding: 10px;
+                    border-radius: 20px;
+                }
+                span {
+
+                }
+            }
+        }
+        .headerTitle{
+
+        }
+        .headerDesc{
+            margin: 20px 0;
+        }
+        .headerButton{
+            background-color:rgb(41, 145, 183);
+            color:#fff;
+            font-weight: 500;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer; 
+        }
+        .headerSearch{
+            background-color: #fff;
+            color: black;
+            height: 30px;
+            border: 2px solid #febb02;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 5px;
+            position: absolute;
+            bottom: -25px;
+            width: 100%;
+            max-width: 1024px;
+
+            .headerSearchItem{
+               
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .headerSearchInput{
+                    border: none;
+                    outline: none;
+                }
+                .headerSearchText{
+                    color: lightgray;
+                    cursor: pointer;
+                }
+                .headerIcon{
+                    color: gray;
+                }
+                .headerBtn{
+                    background-color: var(--bg-color);
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+}
