@@ -99,12 +99,12 @@ function Header() {
                         />}
 
                     </div>
-                    <div className="headerSearchItem" onClick={()=>setOpenOptions(!openOptions)}>
+                    <div className="headerSearchItem" >
                         <FontAwesomeIcon
                             icon={faPerson}
                             className="headerIcon"
                         />
-                        <span className='headerSearchText'>{`${options.adult}  adults ${options.children} children ${options.room} room`}</span>
+                        <span onClick={() => setOpenOptions(!openOptions)} className='headerSearchText'>{`${options.adult}  adults ${options.children} children ${options.room} room`}</span>
                         {openOptions && <div className="options">
                             <div className="optionItem">
                                 <span className="optionText">Adult</span>
