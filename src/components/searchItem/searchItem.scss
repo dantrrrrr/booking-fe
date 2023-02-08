@@ -1,0 +1,105 @@
+.searchItem {
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px ;
+    // box-sizing: border-box;
+
+    .siImg {
+        width: 200px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        flex: 1;
+    }
+
+    .siDesc {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        flex: 2;
+        font-size: 14px;
+
+        .siTitle {
+            font-size: 20px;
+            color: #0071c2;
+            margin: 0;
+        }
+
+        .siDistance {}
+
+        .siTaxiOp {
+            background-color: #008009;
+            color: #fff;
+            width: max-content;
+            padding: 3px;
+            border-radius: 5px;
+        }
+
+        .siSubtitle {
+            font-weight: bold;
+        }
+
+        .siFeatures {}
+
+        .siCancelOp {
+            color:#008009;
+            font-weight: bold;
+        }
+
+        .siCancelOpSubtitle {
+            color: #008009;
+        }
+    }
+
+    .siDetails {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        .siRating{
+            display: flex;
+            justify-content: space-between;
+
+            span{
+                font-weight: 500;
+
+            }
+            button{
+                background-color: #003580;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 5px;
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+        .siDetailTexts{
+            text-align: right;
+            display: flex;
+            // justify-content: center;
+            flex-direction: column;
+            .siPrice{
+                font-size: 24px;
+            }
+            .siTaxOp{
+                font-size: 14px;
+                color: gray;
+            }
+            .siCheckButton{
+                background-color: #0071c2;
+                color:#fff;
+                font-weight: bold;
+                padding: 10px 5px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                margin-top: 10px;
+
+            }
+        }
+    }
+}
