@@ -1,6 +1,7 @@
 import useFetch from '../../hooks/useFetch';
 import './propertyList.scss'
 import Loading from 'react-loading'
+import { memo } from 'react';
 
 function PropertyList() {
   const { data, loading, error } = useFetch('/hotels/type');
@@ -42,4 +43,4 @@ function PropertyList() {
   )
 }
 
-export default PropertyList
+export default memo(PropertyList)

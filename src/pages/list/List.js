@@ -11,12 +11,12 @@ import { BookingBtn } from '../../styles/styled'
 import { SearchContext } from '../../context/SearchContext';
 import Loading from 'react-loading'
 function List() {
-  console.log('render')
+  // console.log('render')
 
   const { state, dispatch } = useContext(SearchContext);
 
 
-  const [searchData, setSearchData] = useState({ })
+  const [searchData, setSearchData] = useState({})
   useEffect(() => {
     setSearchData(prev => ({
       ...prev,
@@ -26,7 +26,7 @@ function List() {
     }))
   }, [])
 
-  console.log("search data :", searchData)
+  // console.log("search data :", searchData)
 
   const [range, setRange] = useState({
     min: 100000,
@@ -34,7 +34,7 @@ function List() {
   })
 
   const [openDate, setOpenDate] = useState(false);
-  const { data, loading, reFetch } = useFetch(`/hotels?city=${searchData.destination ===undefined ? state.destination :searchData.destination}&min=${range.min}&max=${range.max}`);
+  const { data, loading, reFetch } = useFetch(`/hotels?city=${searchData.destination === undefined ? state.destination : searchData.destination}&min=${range.min}&max=${range.max}`);
   const handleSearch = () => {
     reFetch();
     dispatch({ type: "NEW_SEARCH", payload: searchData })

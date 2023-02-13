@@ -1,6 +1,7 @@
 import useFetch from '../../hooks/useFetch'
 import './featured.scss'
 import Loading from 'react-loading'
+import { memo } from 'react';
 
 function Featured() {
     const { data, loading, error } = useFetch('/hotels/city?cities=Quy Nhon,Da Lat,da nang,Nha Trang');
@@ -48,4 +49,4 @@ function Featured() {
     )
 }
 
-export default Featured
+export default memo(Featured)

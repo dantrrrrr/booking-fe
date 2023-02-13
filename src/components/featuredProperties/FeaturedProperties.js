@@ -1,6 +1,7 @@
 import useFetch from '../../hooks/useFetch';
 import './featuredProperties.scss'
 import Loading from 'react-loading'
+import { memo } from 'react';
 
 function FeaturedProperties() {
     const { data, loading } = useFetch('/hotels?featured=true&limit=4');
@@ -38,4 +39,4 @@ function FeaturedProperties() {
     )
 }
 
-export default FeaturedProperties
+export default memo(FeaturedProperties)

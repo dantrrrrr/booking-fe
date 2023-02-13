@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 function Reserve({ setOpenModal, hotelId }) {
 
     const { data } = useFetch(`/hotels/room/${hotelId}`)
-    console.log(data)
+    // console.log(data)
     const [selectedRooms, setSelectedRooms] = useState([]);
     const handleSelect = (e) => {
         const checked = e.target.checked;
@@ -20,7 +20,7 @@ function Reserve({ setOpenModal, hotelId }) {
             : selectedRooms.filter((item) => item !== value)
         )
     }
-    console.log(selectedRooms)
+    // console.log(selectedRooms)
     const { state } = useContext(SearchContext)
     // console.log(state.dates)
     const getDatesInRange = (startDate, endDate) => {
@@ -40,7 +40,7 @@ function Reserve({ setOpenModal, hotelId }) {
         return dates;
     };
     const alldates = getDatesInRange(state.dates[0].startDate, state.dates[0].endDate);
-    console.log(alldates)
+    // console.log(alldates)
     const isAvailable = (roomNumber) => {
         if(roomNumber.unavailableDates.length === 0){
             return false;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { memo, useContext } from 'react';
 import './navbar.scss';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
@@ -33,4 +33,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default memo(Navbar)

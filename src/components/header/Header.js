@@ -6,14 +6,18 @@ import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from 'date-fns';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { SearchContext } from '../../context/SearchContext';
 
 function Header({ type }) {
     const { dispatch } = useContext(SearchContext);
-    const [openDate, setOpenDate] = useState(false);
 
-    const [openOptions, setOpenOptions] = useState(false);
+   
+    console.log("Render header")
+    const [open, setOpen] = useState({
+        date: false,
+        options: false
+    })
 
     const [destination, setDestination] = useState("Nha Trang");
     const [dates, setDates] = useState([{
@@ -28,6 +32,7 @@ function Header({ type }) {
         children: 0,
         room: 1
     })
+
     const navigate = useNavigate();
     const handleOption = (name, type) => {
         setOptions((prev) => {
@@ -48,8 +53,11 @@ function Header({ type }) {
 
                 <div className="headerList">
                     <div className="headerListItem active ">
+                        <Link to="/hotels" className="link">
+
                         <FontAwesomeIcon icon={faBed} />
                         <span>Stays</span>
+                        </Link>
 
                     </div>
                     <div className="headerListItem">
@@ -100,8 +108,8 @@ function Header({ type }) {
                                 icon={faCalendarDays}
                                 className="headerIcon"
                             />
-                            <span className='headerSearchText' onClick={() => setOpenDate(!openDate)}>{`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(dates[0].endDate, "dd/MM/yyyy")}`}</span>
-                            {openDate && <DateRange
+                            <span className='headerSearchText' onClick={() => setOpen(prev => ({ ...prev, date: !prev.date }))}>{`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(dates[0].endDate, "dd/MM/yyyy")}`}</span>
+                            {open.date && <DateRange
                                 className='date'
                                 onChange={item => setDates([item.selection])}
                                 showSelectionPreview={true}
@@ -118,8 +126,8 @@ function Header({ type }) {
                                 icon={faPerson}
                                 className="headerIcon"
                             />
-                            <span onClick={() => setOpenOptions(!openOptions)} className='headerSearchText'>{`${options.adult}  adults ${options.children} children ${options.room} room`}</span>
-                            {openOptions && <div className="options">
+                            <span onClick={() => setOpen(prev => ({ ...prev, options: !prev.options }))} className='headerSearchText'>{`${options.adult}  adults ${options.children} children ${options.room} room`}</span>
+                            {open.options && <div className="options">
                                 <div className="optionItem">
                                     <span className="optionText">Adult</span>
                                     <div className="optionCounter">

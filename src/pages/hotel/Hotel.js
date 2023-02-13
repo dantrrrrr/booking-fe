@@ -16,6 +16,8 @@ import Reserve from '../../components/reserve/Reserve'
 
 function Hotel() {
   const { state } = useContext(SearchContext);
+  const { user } = useContext(AuthContext);
+
 
   const { hotelId } = useParams();
 
@@ -32,6 +34,7 @@ function Hotel() {
       isOpen: true
     }))
   }
+  // slider show click on image
   const handleSlide = (direction) => {
     let newSlideNumber;
     if (direction === "L") {
@@ -43,7 +46,7 @@ function Hotel() {
     setSlide(prev => ({ ...prev, number: newSlideNumber }));
   }
   const { data, loading } = useFetch(`/hotels/find/${hotelId}`)
-  console.log(data)
+  // console.log(data)
   const dayRange = (d1, d2) => {
     const timeDiff = Math.abs(d2.getTime() - d1.getTime());
     const dayDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
@@ -51,7 +54,6 @@ function Hotel() {
 
   }
   const days = (dayRange(state.dates[0]?.startDate, state.dates[0]?.endDate))
-  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleClick = () => {
     if (user) {
