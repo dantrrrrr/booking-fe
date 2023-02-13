@@ -1,8 +1,9 @@
 .navbar {
     height: 50px;
-    background-color:var(--bg-color);
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
+
     .navContainer {
         width: 100%;
         max-width: 1024px;
@@ -11,19 +12,38 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .logo {
-        font-weight: 500;
 
+        .logo {
+            font-weight: 500;
+            font-size: 20px;
         }
 
         .navItems {
             .navButton {
-                    margin-left: 20px;
-                    border: none;
-                    padding: 5px 20px;
-                    cursor: pointer;
-                    color: var(--bg-color);
-            }   
+                margin-left: 20px;
+                border: none;
+                padding: 5px 20px;
+                cursor: pointer;
+                color: var(--bg-color);
+            }
+        }
+        .username{
+           
+            cursor: pointer;
+            font-size: 20px;
+            text-transform:capitalize ;
+          
+        }
+        .logoutButton{
+            text-decoration: underline;
+            border: none;
+            padding: 10px 15px;
+            color: #fff;
+            background: inherit;
+            cursor: pointer;
+            &:hover{
+              color: red;
+            }
         }
     }
 }

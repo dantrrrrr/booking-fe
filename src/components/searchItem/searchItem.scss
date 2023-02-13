@@ -67,7 +67,7 @@
                 font-weight: 500;
 
             }
-            button{
+            .siRatingNumber{
                 background-color: #003580;
                 color: #fff;
                 border: none;
@@ -75,6 +75,9 @@
                 padding: 5px;
                 font-size: 18px;
                 font-weight: 500;
+                width: 35px;
+                aspect-ratio: 1;
+                text-align: center;
             }
         }
         .siDetailTexts{
@@ -90,14 +93,14 @@
                 color: gray;
             }
             .siCheckButton{
-                background-color: #0071c2;
-                color:#fff;
-                font-weight: bold;
-                padding: 10px 5px;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px;
-                margin-top: 10px;
+                // background-color: #0071c2;
+                // color:#fff;
+                // font-weight: bold;
+                // padding: 10px 5px;
+                // border: none;
+                // cursor: pointer;
+                // border-radius: 5px;
+                 margin-top: 10px;
 
             }
         }

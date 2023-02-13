@@ -1,39 +1,50 @@
+import useFetch from '../../hooks/useFetch'
 import './featured.scss'
+import Loading from 'react-loading'
 
 function Featured() {
+    const { data, loading, error } = useFetch('/hotels/city?cities=Quy Nhon,Da Lat,da nang,Nha Trang');
+
+    // console.log(data, loading, error);   
     return (
         <div className='featured'>
-            <div className="featuredItem">
-                <img className='featuredImg' src="https://q-xx.bstatic.com/xdata/images/city/250x250/688831.jpg?k=7b999c7babe3487598fc4dd89365db2c4778827eac8cb2a47d48505c97959a78&o=" alt="" />
-                <div className="featuredTitles">
-                    <h1>Da Lat</h1>
-                    <h2>123 properties</h2>
-                </div>
-            </div>
-            <div className="featuredItem">
-                <img className='featuredImg' src="https://r-xx.bstatic.com/xdata/images/city/250x250/688956.jpg?k=fc88c6ab5434042ebe73d94991e011866b18ee486476e475a9ac596c79dce818&o=" alt="" />
-                <div className="featuredTitles">
-                    <h1>Vung Tau</h1>
-                    <h2>123 properties</h2>
-                </div>
-            </div>
-            <div className="featuredItem">
-                <img className='featuredImg' src="https://q-xx.bstatic.com/xdata/images/city/250x250/688893.jpg?k=d32ef7ff94e5d02b90908214fb2476185b62339549a1bd7544612bdac51fda31&o=" alt="" />
-                <div className="featuredTitles">
-                    <h1>Ho Chi Minh</h1>
-                    <h2>123 properties</h2>
-                </div>
-            </div>
-            <div className="featuredItem">
-                <img className='featuredImg' src="https://q-xx.bstatic.com/xdata/images/city/250x250/688893.jpg?k=d32ef7ff94e5d02b90908214fb2476185b62339549a1bd7544612bdac51fda31&o=" alt="" />
-                <div className="featuredTitles">
-                    <h1>Ho Chi Minh</h1>
-                    <h2>123 properties</h2>
-                </div>
-            </div>
-            
-            
-        </div>
+            {   loading ?(
+                <Loading className='loading' type='balls' color='lightblue' height={20} width={200} />
+            ):
+                <>
+                    <div className="featuredItem">
+                        <img className='featuredImg' src="https://bafybeigrr6ljji7vgxdgz7ub6qirjfsa2kni4x35ndsj5qlovhskkjhtmq.ipfs.w3s.link/quynhonpullman.jpeg" alt="" />
+                        <div className="featuredTitles">
+                            <h1>Quy Nhơn</h1>
+                            <h2>{data[0]} properties</h2>
+                        </div>
+                    </div>
+                    <div className="featuredItem">
+                        <img className='featuredImg' src="https://bafybeihfbc3lj4quu5345u7hjquarkuvlihu4gd5h74poblvkbtht2muny.ipfs.w3s.link/dalat.jpeg" alt="" />
+                        <div className="featuredTitles">
+                            <h1>Đà Lạt</h1>
+                            <h2>{data[1]} properties</h2>
+                        </div>
+                    </div>
+                    <div className="featuredItem">
+                        <img className='featuredImg' src="https://bafybeidkywarscra6w7hmpyob5tposkzibs5mc6m2hk7afpjg3mzl6kewa.ipfs.w3s.link/danang.jpeg" alt="" />
+                        <div className="featuredTitles">
+                            <h1>Đà Nẵng</h1>
+                            <h2>{data[2]} properties</h2>
+                        </div>
+                    </div>
+                    <div className="featuredItem">
+                        <img className='featuredImg' src="https://bafybeig45oznscaflzigipya7xqauoyu55uem5r5ypvxk4oagyu76su22u.ipfs.w3s.link/nhatrang.jpeg" alt="" />
+                        <div className="featuredTitles">
+                            <h1>Nha Trang</h1>
+                            <h2>{data[3]} properties</h2>
+                        </div>
+                    </div>
+                </>
+            }
+
+
+        </div >
     )
 }
 

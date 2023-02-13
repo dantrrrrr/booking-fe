@@ -1,0 +1,91 @@
+.searchItem {
+  border: 1px solid lightgray;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.searchItem .siImg {
+  width: 200px;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  flex: 1;
+}
+.searchItem .siDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 2;
+  font-size: 14px;
+}
+.searchItem .siDesc .siTitle {
+  font-size: 20px;
+  color: #0071c2;
+  margin: 0;
+}
+.searchItem .siDesc .siTaxiOp {
+  background-color: #008009;
+  color: #fff;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 3px;
+  border-radius: 5px;
+}
+.searchItem .siDesc .siSubtitle {
+  font-weight: bold;
+}
+.searchItem .siDesc .siCancelOp {
+  color: #008009;
+  font-weight: bold;
+}
+.searchItem .siDesc .siCancelOpSubtitle {
+  color: #008009;
+}
+.searchItem .siDetails {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.searchItem .siDetails .siRating {
+  display: flex;
+  justify-content: space-between;
+}
+.searchItem .siDetails .siRating span {
+  font-weight: 500;
+}
+.searchItem .siDetails .siRating button {
+  background-color: #003580;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.searchItem .siDetails .siDetailTexts {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+.searchItem .siDetails .siDetailTexts .siPrice {
+  font-size: 24px;
+}
+.searchItem .siDetails .siDetailTexts .siTaxOp {
+  font-size: 14px;
+  color: gray;
+}
+.searchItem .siDetails .siDetailTexts .siCheckButton {
+  background-color: #0071c2;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}/*# sourceMappingURL=searchItem.css.map */

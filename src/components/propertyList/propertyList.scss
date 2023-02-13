@@ -10,14 +10,24 @@
         border-radius: 10px;
         overflow: hidden;
         cursor: pointer;
+        height: max-content;
+        width: 255px;
+        // aspect-ratio: 1;
+        // box-shadow: 5px 8px 21px -6px rgba(0, 0, 0, 0.68);
+        // -webkit-box-shadow: 5px 8px 21px -6px rgba(0, 0, 0, 0.68);
+        // -moz-box-shadow: 5px 8px 21px -6px rgba(0, 0, 0, 0.68);
 
         .pListImg {
             width: 100%;
-            aspect-ratio: 1;
+            aspect-ratio: 0.96;
             object-fit: cover;
+            border-radius: 10px;
         }
 
         .pListTitles {
+            text-transform: capitalize;
+            color: #333;
+
             h1 {
                 font-size: 18px;
             }

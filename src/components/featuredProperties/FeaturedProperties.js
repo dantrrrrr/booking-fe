@@ -1,69 +1,40 @@
+import useFetch from '../../hooks/useFetch';
 import './featuredProperties.scss'
+import Loading from 'react-loading'
 
 function FeaturedProperties() {
+    const { data, loading } = useFetch('/hotels?featured=true&limit=4');
+    // console.log(data)
     return (
         <div className='fp'>
-            <div className="fpItem">
 
-                <img src="https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1" alt="" className="fpImg" />
-                <span className="fpName">Alo mot hai ba bon nam</span>
-                <span className="fpCity">Ho Chi MInh</span>
-                <span className="fpPrice">Start from $20</span>
-                <div className="fpRating">
-                    <button>9.0</button>
-                    <span>Excellent</span>
-                </div>
+            {loading ? (
+                <Loading className='loading' type='balls' color='lightblue' height={20} width={200} />
+            )
 
-            </div>
-            <div className="fpItem">
+                : <>
+                    {data.map((item) => (
 
-                <img src="https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1" alt="" className="fpImg" />
-                <span className="fpName">Alo mot hai ba bon nam</span>
-                <span className="fpCity">Ho Chi MInh</span>
-                <span className="fpPrice">Start from $20</span>
-                <div className="fpRating">
-                    <button>9.0</button>
-                    <span>Excellent</span>
-                </div>
+                        <div className="fpItem" key={item._id}>
 
-            </div>
-            <div className="fpItem">
+                            <img src={item.photos[0]} alt="" className="fpImg" />
+                            <span className="fpName">{item.name}</span>
+                            <span className="fpCity">{item.city}</span>
+                            <span className="fpPrice">Start from {item.cheapestPrice}</span>
+                            {item.rating && <div className="fpRating">
+                                <button>{item.rating}</button>
+                                <span>Excellent</span>
+                            </div>}
 
-                <img src="https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1" alt="" className="fpImg" />
-                <span className="fpName">Alo mot hai ba bon nam</span>
-                <span className="fpCity">Ho Chi MInh</span>
-                <span className="fpPrice">Start from $20</span>
-                <div className="fpRating">
-                    <button>9.0</button>
-                    <span>Excellent</span>
-                </div>
+                        </div>
+                    ))
+                    }
+                </>
+            }
 
-            </div>
-            <div className="fpItem">
 
-                <img src="https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1" alt="" className="fpImg" />
-                <span className="fpName">Alo mot hai ba bon nam</span>
-                <span className="fpCity">Ho Chi MInh</span>
-                <span className="fpPrice">Start from $20</span>
-                <div className="fpRating">
-                    <button>9.0</button>
-                    <span>Excellent</span>
-                </div>
 
-            </div>
-            <div className="fpItem">
-
-                <img src="https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1" alt="" className="fpImg" />
-                <span className="fpName">Alo mot hai ba bon nam</span>
-                <span className="fpCity">Ho Chi MInh</span>
-                <span className="fpPrice">Start from $20</span>
-                <div className="fpRating">
-                    <button>9.0</button>
-                    <span>Excellent</span>
-                </div>
-
-            </div>
-        </div>
+        </div >
     )
 }
 

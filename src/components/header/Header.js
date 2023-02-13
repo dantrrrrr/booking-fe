@@ -1,30 +1,34 @@
 import './header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from "@fortawesome/free-solid-svg-icons"
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from 'date-fns';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { SearchContext } from '../../context/SearchContext';
 
 function Header({ type }) {
+    const { dispatch } = useContext(SearchContext);
     const [openDate, setOpenDate] = useState(false);
-    const [destination, setDestination] = useState("");
-    const [date, setDate] = useState([{
+
+    const [openOptions, setOpenOptions] = useState(false);
+
+    const [destination, setDestination] = useState("Nha Trang");
+    const [dates, setDates] = useState([{
         startDate: new Date(),
-        endDate: new Date(),
+        endDate: new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000),
         key: 'selection'
 
-    },
+    }
     ]);
-    const [openOptions, setOpenOptions] = useState(false);
     const [options, setOptions] = useState({
         adult: 1,
         children: 0,
         room: 1
     })
-    const navigate =useNavigate();
+    const navigate = useNavigate();
     const handleOption = (name, type) => {
         setOptions((prev) => {
             return {
@@ -33,12 +37,14 @@ function Header({ type }) {
             };
         });
     }
-    const handleSearch =()=>{
-        navigate('/hotels',{state:{destination,date,options}});
+    const handleSearch = () => {
+        dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } })
+        navigate('/hotels',
+        );
     }
     return (
         <div className="header">
-            <div className={type === 'list' ? "headerContainer listMode":"headerContainer"}>
+            <div className={type === 'list' ? "headerContainer listMode" : "headerContainer"}>
 
                 <div className="headerList">
                     <div className="headerListItem active ">
@@ -85,7 +91,7 @@ function Header({ type }) {
                                 id=""
                                 className='headerSearchInput'
                                 placeholder='Where u gonna go ? :))'
-                                onChange={e=>setDestination(e.target.value)}
+                                onChange={e => setDestination(e.target.value)}
                             />
 
                         </div>
@@ -94,14 +100,14 @@ function Header({ type }) {
                                 icon={faCalendarDays}
                                 className="headerIcon"
                             />
-                            <span className='headerSearchText'  onClick={() => setOpenDate(!openDate)}>{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(date[0].endDate, "dd/MM/yyyy")}`}</span>
+                            <span className='headerSearchText' onClick={() => setOpenDate(!openDate)}>{`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(dates[0].endDate, "dd/MM/yyyy")}`}</span>
                             {openDate && <DateRange
                                 className='date'
-                                onChange={item => setDate([item.selection])}
+                                onChange={item => setDates([item.selection])}
                                 showSelectionPreview={true}
                                 moveRangeOnFirstSelection={false}
                                 months={1}
-                                ranges={date}
+                                ranges={dates}
                                 direction="horizontal"
                                 minDate={new Date()}
                             />}

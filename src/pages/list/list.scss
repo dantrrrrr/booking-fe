@@ -18,7 +18,8 @@
             border-radius: 10px;
             position: sticky;
             top: 10px;
-            max-height: 80vh;
+            height: max-content;
+
             .lsTitle {
                 color: #555;
                 font-size: 20px;
@@ -53,6 +54,7 @@
 
                 .lsOptions {
                     padding: 10px;
+
                     .lsOptionItem {
                         display: flex;
                         flex-direction: row;
@@ -63,25 +65,27 @@
                         align-items: center;
 
                         .lsOptionInput {
-                            width: 50px;
-                            // padding: 5px;
+                            width: 70px;
+                            padding: 5px 10px ;
                             text-align: center;
+
                         }
 
 
                     }
                 }
             }
-            button{
-                padding: 10px;
-                background-color: #0071c2;
-                color: #fff;
-                border: none;
-                width: 100%;
-                font-weight: 500;
-                cursor: pointer;
-            
-            }
+
+            // button {
+            //     padding: 10px;
+            //     background-color: #0071c2;
+            //     color: #fff;
+            //     border: none;
+            //     width: 100%;
+            //     font-weight: 500;
+            //     cursor: pointer;
+
+            // }
         }
 
         .listResult {
@@ -89,4 +93,10 @@
 
         }
     }
+}
+.loading{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    height: 20px;
 }
